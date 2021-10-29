@@ -84,9 +84,11 @@ def encodeDecodeRequest(bot, message):
         f'ℹ️ информация' : "info",
         f'🔄 смена кодировки' : "back"
     }
-      
+
+    buttons = list(items.keys())  
     
-    markup.add(*items.keys())
+    markup.add(*buttons[:2])
+    markup.add(*buttons[2:])
     send = bot.send_message(message.chat.id,'Хотите заштфорвать или расшифровать?',reply_markup=markup)
     bot.register_next_step_handler(send, lambda message: encodeDecodeResponse(bot, message, items))
 
