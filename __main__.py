@@ -132,6 +132,7 @@ def useBot(config):
         }
         codeRequest(bot, message)
     
+    print('бот запущен, ожидаю')
     bot.polling()
 
 
